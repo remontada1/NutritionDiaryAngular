@@ -5,14 +5,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JsonpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './food.component';
+import { FoodInputFormComponent } from './food-input-form/food-input-form.component';
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FoodInputFormComponent
   ],
   entryComponents: [
 
