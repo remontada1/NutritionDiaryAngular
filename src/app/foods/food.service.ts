@@ -16,20 +16,20 @@ const httpOptions = {
 };
 @Injectable()
 export class FoodService {
-
-
-
-    private baseUrl = 'http://localhost:36290/api/foods';
+    food = {};
+    private baseUrl = 'http://localhost:36290/api/food';
 
     constructor(private http: HttpClient) { }
 
 
     getFoods(): Observable<Food[]> {
-        return this.http.get<Food[]>(this.baseUrl);
+        return this.http.get<Food[]>('http://localhost:36290/api/foods');
     }
 
-    addFood(food: Food) {
-        return this.http.post('http://localhost:36290/api/food', food, httpOptions);
+    public addFood(food) {
+        this.http.post('http://localhost:36290/api/food/', food, httpOptions)
+            .subscribe(res => {
+                console.log('Food added');
+            }, (err) => { console.log(err); });
     }
-
 }

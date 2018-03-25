@@ -2,17 +2,17 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FoodService } from './foods/food.service';
+import { FoodService } from './food.service';
 
-import { Food } from './foods/food';
+import { Food } from './food';
 
 
 
 
 @Component({
   selector: 'app-root',
-  templateUrl: './foods/food.component.html',
-  styleUrls: ['./foods/food.component.css'],
+  templateUrl: './food.component.html',
+  styleUrls: ['./food.component.css'],
   providers: [FoodService]
 })
 
