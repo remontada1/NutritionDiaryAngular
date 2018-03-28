@@ -16,7 +16,7 @@ const httpOptions = {
 };
 @Injectable()
 export class FoodService {
-    food = {};
+
     private baseUrl = 'http://localhost:36290/api/food';
 
     constructor(private http: HttpClient) { }
@@ -27,9 +27,7 @@ export class FoodService {
     }
 
     public addFood(food) {
-        this.http.post('http://localhost:36290/api/food/', food, httpOptions)
-            .subscribe(res => {
-                console.log('Food added');
-            }, (err) => { console.log(err); });
+       return this.http.post('http://localhost:36290/api/food/', food, httpOptions);
+           
     }
 }
