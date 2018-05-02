@@ -28,5 +28,6 @@ export class FoodService {
 
     public addFood(food) {
        return this.http.post('http://localhost:36290/api/food/', food, httpOptions);
+           
     }
 }

@@ -17,7 +17,7 @@ import { Food } from './food';
 })
 
 
-export class FoodComponent implements OnInit {
+export class AppComponent implements OnInit {
   title = 'app';
   private foods: Food[];
   food = {};
@@ -33,7 +33,7 @@ export class FoodComponent implements OnInit {
     this.foodService.getFoods().subscribe(foods => {
       this.foods = foods;
     });
-
+    
   }
   createFood(food) {
     this.foodService.addFood(food)

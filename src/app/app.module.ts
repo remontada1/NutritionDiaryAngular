@@ -5,17 +5,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JsonpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { FoodComponent } from './foods/food.component';
+import { AppComponent } from './foods/food.component';
 import { FoodInputFormComponent } from './food-input-form/food-input-form.component';
-import { AppRoutingModule } from './app-routing.module';
-import { RouterModule } from '@angular/router';
 
 
 
 
 @NgModule({
   declarations: [
-    FoodComponent,
+    AppComponent,
     FoodInputFormComponent
   ],
   entryComponents: [
@@ -24,9 +22,9 @@ import { RouterModule } from '@angular/router';
   imports: [NgbModule.forRoot(),
     BrowserModule,
     HttpClientModule,
-    FormsModule, ReactiveFormsModule, JsonpModule, AppRoutingModule
+    FormsModule, ReactiveFormsModule, JsonpModule
   ],
   providers: [],
-  bootstrap: [FoodComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

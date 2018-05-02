@@ -12,11 +12,18 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./food-input-form.component.css']
 })
 export class FoodInputFormComponent implements OnInit {
+  food = {};
+
   constructor(private foodService: FoodService) {
 
   }
 
   ngOnInit() {
+  }
+
+  createFood(food) {
+    this.foodService.addFood(food);
+    console.log('food created');
   }
 
 }

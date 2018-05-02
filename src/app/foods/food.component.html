@@ -1,6 +1,5 @@
 <nav class="navbar  navbar-expand-md  navbar-dark bg-blue mb-4">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -19,12 +18,11 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-      <button class="btn btn-signIn my-2 ml-4 my-sm2" type="submit">Sign In</button>
+      <button class="btn btn-primary my-2 my-sm-0"  type="submit">Search</button>
+      <button class="btn btn-signIn my-2 ml-4 my-sm2"  type="submit">Sign In</button>
     </form>
   </div>
 </nav>
-<router-outlet></router-outlet>
 <div class="container">
   <div class="col-md-12">
     <div class="row">
@@ -38,47 +36,42 @@
     <div class="col-md-4">
       <button class="btn btn-primary" (click)="createFood(food)">Add </button>
     </div>
-    <div class="table-wrapper">
-
-      <div class="head-panel">
-        <div class="row">
-          <div class="col-12">
-            <p class="float-left table-title">
-              Food list
-            </p>
-            <button type="button" class="btn btn-add  my-2 my-sm-0 float-right" (click)="open()" type="submit">
-              <i class="fa fa-plus"> Add</i>
-            </button>
-          </div>
+    <div class="head-panel">
+      <div class="row">
+        <div class="col-12">
+          <button type="button" class="btn btn-add btn-md float-right" (click)="open()" type="submit" >
+            <i class="fa fa-plus"> Add</i>
+          </button>
         </div>
       </div>
-      <table class="table table-bordered table-striped table-hover">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Fats</th>
-            <th>Calories</th>
-            <th>Proteins</th>
-            <th>Hydrates</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let food of foods">
-            <td>{{food.$id}}</td>
-            <td>{{food.foodName}}</td>
-            <td>{{food.fats}}</td>
-            <td>{{food.kCalory}}</td>
-            <td>{{food.protein}}</td>
-            <td>{{food.foodCarboHydrates}}</td>
-
-            <td class="text-center">
-              <button type="button" class="btn btn-pink btn-sm">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Fats</th>
+          <th>Calories</th>
+          <th>Proteins</th>
+          <th>Hydrates</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let food of foods">
+          <td>{{food.$id}}</td>
+          <td>{{food.foodName}}</td>
+          <td>{{food.fats}}</td>
+          <td>{{food.kCalory}}</td>
+          <td>{{food.protein}}</td>
+          <td>{{food.foodCarboHydrates}}</td>
 
+          <td class="text-center">
+            <button type="button" class="btn btn-pink btn-sm">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+
+</div>
