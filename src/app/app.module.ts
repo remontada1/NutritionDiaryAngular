@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './foods/food.component';
 import { FoodInputFormComponent } from './food-input-form/food-input-form.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 
@@ -22,7 +23,7 @@ import { FoodInputFormComponent } from './food-input-form/food-input-form.compon
   imports: [NgbModule.forRoot(),
     BrowserModule,
     HttpClientModule,
-    FormsModule, ReactiveFormsModule, JsonpModule
+    FormsModule, ReactiveFormsModule, JsonpModule, AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
