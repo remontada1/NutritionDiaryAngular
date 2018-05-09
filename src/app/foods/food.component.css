@@ -1,7 +1,7 @@
 .table th {
   margin-top: 100px;
-  background-color: rgb(46, 133, 204);
-  color: #ffffff;
+  border-collapse: collapse;
+  border: none;
 }
 
 .bg-blue {
@@ -20,13 +20,12 @@
 }
 
 .btn-add {
-  background-color: rgb(46, 133, 204);
-  color: white;
+  background-color: rgb(236, 238, 240);
+margin :10px;
 }
 
 .btn-signIn {
-  background-color: rgb(54, 53, 53);
-  border: 2px solid #ffffff;
+  background-color: rgb(31, 197, 40);
   color: white;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
@@ -37,4 +36,9 @@
   color: rgb(54, 53, 53);
 }
 
-
+.head-panel {
+  background-color: rgb(46, 133, 204);
+}
+.btn-primary{
+  background-color: rgb(46, 133, 204);
+}
