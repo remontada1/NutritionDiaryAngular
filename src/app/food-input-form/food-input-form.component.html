@@ -1,12 +1,22 @@
 <div class="row">
-  <div class="col-md-6">
-    <input id="newName" [(ngModel)]='food.Name' type="text" placeholder="food" />
+  <div class="col-md-3">
+    <input id="name" [(ngModel)]='food.Name' type="text" placeholder="Name" />
   </div>
-  <div class="col-md-6">
-    <input id="fats" [(ngModel)]='food.fats' type="text" placeholder="fats" />
+  <div class="col-md-3">
+    <input id="fats" [(ngModel)]='food.fats' type="text" placeholder="Fats" />
   </div>
+  <div class="col-md-3">
+    <input id="calories" [(ngModel)]='food.KCalory' type="text" placeholder="Calories" />
+  </div>
+  <div class="col-md-3">
+    <input id="proteins" [(ngModel)]='food.protein' type="text" placeholder="Proteins" />
+  </div>
+  <div class="col-md-3">
+    <input id="hydrates" [(ngModel)]='food.hydrates' type="text" placeholder="Hydrates"/>
+  </div>
+
 </div>
-<div class="col-md-4">
+<div class="col-md-1 offset-md-5">
   <button class="btn btn-primary" (click)="createFood(food)">Add </button>
 </div>
 

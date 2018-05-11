@@ -5,6 +5,7 @@ import { FoodService } from '../foods/food.service';
 import { Observable } from 'rxjs/Observable';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http'; import { HttpModule } from '@angular/http';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 
 
@@ -17,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http'; import { HttpModule } f
 export class FoodInputFormComponent implements OnInit {
   food = {};
 
-  constructor(private foodService: FoodService) {
+  constructor(private foodService: FoodService, private router: Router) {
 
   }
 
@@ -30,6 +31,7 @@ export class FoodInputFormComponent implements OnInit {
         console.log('Food added');
       }, (err) => { console.log(err); });
     console.log('food created');
+    this.router.navigate(['/foods']);
   }
 
 }
