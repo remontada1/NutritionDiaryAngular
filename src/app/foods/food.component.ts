@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FoodService } from './food.service';
+import { Router } from '@angular/router';
 
 import { Food } from './food';
 
@@ -24,7 +25,8 @@ export class FoodComponent implements OnInit {
 
   constructor(private http: HttpClient,
     private foodService: FoodService,
-    private modalService: NgbModal) { }
+    private modalService: NgbModal,
+    private router: Router) { }
 
   ngOnInit() {
     this.getAllFoods();
@@ -43,6 +45,10 @@ export class FoodComponent implements OnInit {
       }, (err) => { console.log(err); });
     console.log('food created');
   }
+
+  addFood = function () {
+    this.router.navigate(['/input-form']);
+  };
 
 }
 

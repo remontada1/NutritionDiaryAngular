@@ -30,7 +30,12 @@ export class FoodInputFormComponent implements OnInit {
       .subscribe(res => {
         console.log('Food added');
       }, (err) => { console.log(err); });
-    console.log('food created');
+
+    this.gotoFoods();
+
+  }
+
+  gotoFoods() {
     this.router.navigate(['/foods']);
   }
 
