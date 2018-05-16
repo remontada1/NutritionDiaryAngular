@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers, RequestOptions, RequestMethod } from '@angular/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Food } from './food';
+import { of } from 'rxjs/observable/of';
+
 
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
@@ -26,8 +28,20 @@ export class FoodService {
         return this.http.get<Food[]>('http://localhost:36290/api/foods');
     }
 
-    public addFood(food) {
-       return this.http.post('http://localhost:36290/api/food/', food, httpOptions);
-           
+    addFood(food) {
+        return this.http.post('http://localhost:36290/api/food/', food, httpOptions);
+
     }
+
+    deleteFood(food): Observable<Food> {
+        const id = typeof food === 'number' ? food : food.foodId;
+        const url = this.baseUrl + '/' + id;
+
+        return this.http.delete<Food>(url, httpOptions).pipe(
+            tap(_ => console.log(`deleted hero id=${id}`)),
+            catchError(this.deleteFood)
+        );
+
+    }
+
 }

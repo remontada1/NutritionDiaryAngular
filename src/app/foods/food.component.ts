@@ -41,14 +41,22 @@ export class FoodComponent implements OnInit {
     this.foodService.addFood(food)
       .subscribe(res => {
         console.log('Food added');
+        this.foods.push(food);
         this.getAllFoods();
       }, (err) => { console.log(err); });
-    console.log('food created');
   }
 
   addFood = function () {
     this.router.navigate(['/input-form']);
   };
+
+  delete(food): void {
+    this.foods = this.foods.filter(f => f !== food);
+    this.foodService.deleteFood(food).subscribe(
+      res => {
+        this.getAllFoods();
+      }, (err) => { console.log('food has not been deleted'); });
+  }
 
 }
 
