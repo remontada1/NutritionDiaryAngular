@@ -33,7 +33,7 @@
     <div class="form-row">
       <div class="col-md-4 col-sm-6 col-xs-12 mx-3">
         <label for="name">Proteins</label>
-        <input type="text" class="form-control" id="Proteins" required [(ngModel)]='food.proteins' name="Proteins" #Proteins=ngModel>
+        <input type="text" class="form-control" id="Proteins" required [(ngModel)]='food.protein' name="Proteins" #Proteins=ngModel>
         <div [hidden]="Proteins.valid || Proteins.pristine" class="alert alert-danger">
           Proteins is required</div>
       </div>
