@@ -21,7 +21,7 @@ import { Food } from './food';
 export class FoodComponent implements OnInit {
   title = 'app';
   private foods: Food[];
-  food = {};
+  /* food = {}; */
 
   constructor(private http: HttpClient,
     private foodService: FoodService,
@@ -40,9 +40,8 @@ export class FoodComponent implements OnInit {
   createFood(food) {
     this.foodService.addFood(food)
       .subscribe(res => {
-        console.log('Food added');
-        this.foods.push(food);
-        this.getAllFoods();
+        this.foods.push(res);
+        console.log('success');
       }, (err) => { console.log(err); });
   }
 

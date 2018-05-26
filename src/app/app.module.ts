@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { JsonpModule } from '@angular/http';
+import { JsonpModule, HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './/app.component';
@@ -10,6 +10,10 @@ import { AppComponent } from './/app.component';
 import { FoodComponent } from './foods/food.component';
 import { FoodInputFormComponent } from './food-input-form/food-input-form.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { UserComponent } from './user/user.component';
+import {MessageService} from './message.service';
+import { UserService} from './user/user.service';
+
 
 
 
@@ -18,7 +22,8 @@ import { AppRoutingModule } from './/app-routing.module';
   declarations: [
     AppComponent,
     FoodInputFormComponent,
-    FoodComponent
+    FoodComponent,
+    UserComponent
   ],
   entryComponents: [
 
@@ -26,9 +31,10 @@ import { AppRoutingModule } from './/app-routing.module';
   imports: [NgbModule.forRoot(),
     BrowserModule,
     HttpClientModule,
+    HttpModule,
     FormsModule, ReactiveFormsModule, JsonpModule, AppRoutingModule
   ],
-  providers: [],
+  providers: [MessageService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

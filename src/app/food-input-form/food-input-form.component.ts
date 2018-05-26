@@ -17,6 +17,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class FoodInputFormComponent implements OnInit {
   food = {};
+  private foods: Food[] = [];
 
   constructor(private foodService: FoodService, private router: Router) {
 
@@ -25,13 +26,22 @@ export class FoodInputFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  createFood(food) {
+/*   createFood(food) {
     this.foodService.addFood(food)
       .subscribe(res => {
         console.log('Food added');
-      }, (err) => { console.log(err); });
+      }, (err) => { console.log(err); }); 
 
     this.gotoFoods();
+
+  } */
+  createFood(food) {
+    this.foodService.addFood(food)
+      .subscribe(res => {
+        this.foods.push(res);
+        console.log('success');
+        this.gotoFoods();
+      }, (err) => { console.log(err); });
 
   }
 
