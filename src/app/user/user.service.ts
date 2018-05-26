@@ -19,19 +19,15 @@ export class UserService {
 
 
     login(userName, password) {
-        const body = new URLSearchParams();
-        body.set('username', userName);
-        body.set('password', password);
-        body.set('grant_type', 'password');
+        let urlSearchParams = new URLSearchParams();
+        urlSearchParams.set('username', userName);
+        urlSearchParams.set('password', password);
+        urlSearchParams.set('grant_type', 'password');
+        let body = urlSearchParams.toString();
 
-
-
-
-        const data = 'username=' + userName + '&password=' + password + '&grant_type=password';
-
+     //  const data = 'username=' + userName + '&password=' + password + '&grant_type=password';
         const options = { headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }) };
-        /*  let headers = { headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }) }; */
-        return this.http.post(this.baseUrl + '/oauth/token', data, options);
+        return this.http.post(this.baseUrl + '/oauth/token', body, options);
 
 
     }
