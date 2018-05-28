@@ -1,5 +1,5 @@
-<form #loginForm="ngForm" class="col s12 white" (ngSubmit)="OnSubmit(UserName.value,Password.value)">
-  <div class="row">
+<!-- <form #loginForm="ngForm" class="col s12 white" (ngSubmit)="OnSubmit(UserName.value,Password.value)"> -->
+<!-- <div class="row">
     <div class="input-field col s12">
       <i class="material-icons prefix">account_circle</i>
       <input type="text" #UserName ngModel name="UserName" placeholder="Username" required>
@@ -8,12 +8,34 @@
   <div class="row">
      <div class="input-field col s12">
        <i class="material-icons prefix">vpn_key</i>
-       <input type="password" #Password ngModel name="Password" placeholder="Password" required>
+       
      </div>
    </div>
    <div class="row">
        <div class="input-field col s12">
          <button [disabled]="!loginForm.valid" class="btn-large btn-submit" type="submit">Login</button>
        </div>
-     </div>
-</form>
+     </div> -->
+<div class="container">
+  <form #loginForm="ngForm" class="col s12 white" (ngSubmit)="OnSubmit(UserName.value,Password.value)">
+    <div class="form-row">
+      <div class="col-md-4 col-sm-6 col-xs-11 ml-3">
+        <label for="name">Username</label>
+        <input type="text" class="form-control" #UserName ngModel name="UserName" placeholder="Username" required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-4 col-sm-6 col-xs-11 ml-3">
+        <label for="name">Password</label>
+        <input type="password" class="form-control" #Password ngModel name="Password" placeholder="Password" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 ml-3 my-3">
+        <button [disabled]="!loginForm.valid" class="btn btn-primary" type="submit">Login</button>
+      </div>
+    </div>
+  </form>
+</div>
