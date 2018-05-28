@@ -11,12 +11,10 @@ import { User } from './user.model';
 @Injectable()
 export class UserService {
 
-
     private baseUrl = 'http://localhost:36290';
     constructor(private http: HttpClient) {
 
     }
-
 
     login(userName, password) {
         let urlSearchParams = new URLSearchParams();
@@ -28,8 +26,6 @@ export class UserService {
      //  const data = 'username=' + userName + '&password=' + password + '&grant_type=password';
         const options = { headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }) };
         return this.http.post(this.baseUrl + '/oauth/token', body, options);
-
-
     }
 }
 

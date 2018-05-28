@@ -1,10 +1,8 @@
-<div class="offset-md-2">
-
-
+<div class="container">
   <form>
 
     <div class="form-row">
-      <div class="col-md-4 col-sm-6 col-xs-12 mx-3">
+      <div class="col-md-4 col-sm-6 col-xs-11 ml-3">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" required [(ngModel)]='food.name' name="name" #name=ngModel>
         <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
@@ -13,7 +11,7 @@
     </div>
 
     <div class="form-row">
-      <div class="col-md-4 col-sm-6 col-xs-12 mx-3">
+      <div class="col-md-4 col-sm-6 col-xs-11 ml-3">
         <label for="name">Calories</label>
         <input type="text" class="form-control" id="name" required [(ngModel)]='food.KCalory' name="calories" #calories=ngModel>
         <div [hidden]="calories.valid || calories.pristine" class="alert alert-danger">
@@ -22,7 +20,7 @@
     </div>
 
     <div class="form-row">
-      <div class="col-md-4 col-sm-6 col-xs-12 mx-3">
+      <div class="col-md-4 col-sm-6 col-xs-11 ml-3">
         <label for="name">Hydrates</label>
         <input type="text" class="form-control" id="Hydrates" required [(ngModel)]='food.hydrates' name="Hydrates" #hydrates=ngModel>
         <div [hidden]="hydrates.valid || hydrates.pristine" class="alert alert-danger">
@@ -31,7 +29,7 @@
     </div>
 
     <div class="form-row">
-      <div class="col-md-4 col-sm-6 col-xs-12 mx-3">
+      <div class="col-md-4 col-sm-6 col-xs-11 ml-3">
         <label for="name">Proteins</label>
         <input type="text" class="form-control" id="Proteins" required [(ngModel)]='food.protein' name="Proteins" #Proteins=ngModel>
         <div [hidden]="Proteins.valid || Proteins.pristine" class="alert alert-danger">
@@ -40,7 +38,7 @@
     </div>
 
     <div class="form-row">
-      <div class="col-md-4 col-sm-6 col-xs-12 mx-3 my-3">
+      <div class="col-md-4 col-sm-6 col-xs-11 ml-3 my-3">
         <label for="name">Fats</label>
         <input type="text" class="form-control" id="Fats" required [(ngModel)]='food.fats' name="Fats" #Fats=ngModel>
         <div [hidden]="Fats.valid || Fats.pristine" class="alert alert-danger">
@@ -52,4 +50,7 @@
       <button class="btn btn-primary" (click)="createFood(food)">Add </button>
     </div>
   </form>
+
+
+
 </div>
