@@ -23,7 +23,6 @@ export class UserService {
         urlSearchParams.set('grant_type', 'password');
         let body = urlSearchParams.toString();
 
-     //  const data = 'username=' + userName + '&password=' + password + '&grant_type=password';
         const options = { headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }) };
         return this.http.post(this.baseUrl + '/oauth/token', body, options);
     }
