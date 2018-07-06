@@ -21,7 +21,7 @@ import { Food } from './food';
 export class FoodComponent implements OnInit {
   title = 'app';
   private foods: Food[];
-  /* food = {}; */
+  
 
   constructor(private http: HttpClient,
     private foodService: FoodService,
@@ -31,12 +31,13 @@ export class FoodComponent implements OnInit {
   ngOnInit() {
     this.getAllFoods();
   }
+
   getAllFoods(): void {
     this.foodService.getFoods().subscribe(foods => {
       this.foods = foods;
     });
-
   }
+
   createFood(food) {
     this.foodService.addFood(food)
       .subscribe(res => {
@@ -45,7 +46,7 @@ export class FoodComponent implements OnInit {
       }, (err) => { console.log(err); });
   }
 
-  addFood = function () {
+  addFoodRedirect = function () {
     this.router.navigate(['/input-form']);
   };
 
