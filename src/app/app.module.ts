@@ -10,7 +10,7 @@ import { AppComponent } from './/app.component';
 import { FoodComponent } from './foods/food.component';
 import { FoodInputFormComponent } from './food-input-form/food-input-form.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { UserComponent } from './user/user.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
 import {MessageService} from './message.service';
 import { UserService} from './user/user.service';
 
@@ -23,7 +23,7 @@ import { UserService} from './user/user.service';
     AppComponent,
     FoodInputFormComponent,
     FoodComponent,
-    UserComponent
+    SignInComponent
   ],
   entryComponents: [
 

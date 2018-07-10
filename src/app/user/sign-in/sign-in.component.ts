@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './user.service';
+import { UserService } from '../user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { User } from './user.model';
+import { User } from '../user.model';
 import { catchError,  tap } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.css']
 })
-export class UserComponent implements OnInit {
+export class SignInComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) { }
 

@@ -33,8 +33,9 @@
   }
   
   .btn-signIn:hover {
-    background-color: white;
-    color: rgb(54, 53, 53);
+    background-color: #239b29;
+    color: rgb(255, 255, 255);
+    
   }
   
   .head-panel {

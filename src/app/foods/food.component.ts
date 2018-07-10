@@ -10,6 +10,7 @@ import { Food } from './food';
 
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './food.component.html',
@@ -21,7 +22,7 @@ import { Food } from './food';
 export class FoodComponent implements OnInit {
   title = 'app';
   private foods: Food[];
-  
+
 
   constructor(private http: HttpClient,
     private foodService: FoodService,
@@ -46,10 +47,6 @@ export class FoodComponent implements OnInit {
       }, (err) => { console.log(err); });
   }
 
-  addFoodRedirect = function () {
-    this.router.navigate(['/input-form']);
-  };
-
   delete(food): void {
     this.foods = this.foods.filter(f => f !== food);
     this.foodService.deleteFood(food).subscribe(
@@ -57,6 +54,10 @@ export class FoodComponent implements OnInit {
         this.getAllFoods();
       }, (err) => { console.log('food has not been deleted'); });
   }
+
+  addFoodRedirect = function () {
+    this.router.navigate(['/input-form']);
+  };
 
 }
 
