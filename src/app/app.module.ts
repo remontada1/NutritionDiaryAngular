@@ -1,3 +1,4 @@
+import { AuthGuard } from './user/guards/auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,9 +12,10 @@ import { FoodComponent } from './foods/food.component';
 import { FoodInputFormComponent } from './food-input-form/food-input-form.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { SignInComponent } from './user/sign-in/sign-in.component';
-import {MessageService} from './shared/message.service';
-import { UserService} from './user/user.service';
+import { MessageService } from './shared/message.service';
+import { UserService } from './user/user.service';
 import { AlertModule } from 'ngx-bootstrap';
+
 
 
 
@@ -30,13 +32,13 @@ import { AlertModule } from 'ngx-bootstrap';
 
   ],
   imports: [NgbModule.forRoot(),
-    AlertModule.forRoot(),
+  AlertModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     HttpModule,
     FormsModule, ReactiveFormsModule, JsonpModule, AppRoutingModule
   ],
-  providers: [MessageService, UserService],
+  providers: [MessageService, UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
