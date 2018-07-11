@@ -11,8 +11,9 @@ import { FoodComponent } from './foods/food.component';
 import { FoodInputFormComponent } from './food-input-form/food-input-form.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { SignInComponent } from './user/sign-in/sign-in.component';
-import {MessageService} from './message.service';
+import {MessageService} from './shared/message.service';
 import { UserService} from './user/user.service';
+import { AlertModule } from 'ngx-bootstrap';
 
 
 
@@ -29,6 +30,7 @@ import { UserService} from './user/user.service';
 
   ],
   imports: [NgbModule.forRoot(),
+    AlertModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     HttpModule,

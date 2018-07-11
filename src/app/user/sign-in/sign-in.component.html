@@ -1,22 +1,8 @@
-<!-- <form #loginForm="ngForm" class="col s12 white" (ngSubmit)="OnSubmit(UserName.value,Password.value)"> -->
-<!-- <div class="row">
-    <div class="input-field col s12">
-      <i class="material-icons prefix">account_circle</i>
-      <input type="text" #UserName ngModel name="UserName" placeholder="Username" required>
-    </div>
-  </div>
-  <div class="row">
-     <div class="input-field col s12">
-       <i class="material-icons prefix">vpn_key</i>
-       
-     </div>
-   </div>
-   <div class="row">
-       <div class="input-field col s12">
-         <button [disabled]="!loginForm.valid" class="btn-large btn-submit" type="submit">Login</button>
-       </div>
-     </div> -->
+
 <div class="container">
+  <alert *ngIf="isLoginError" type="danger">
+      Incorrect password or username. Please, try again.
+    </alert>
   <form #loginForm="ngForm" class="col s12 white" (ngSubmit)="OnSubmit(UserName.value,Password.value)">
     <div class="form-row">
       <div class="col-md-4 col-sm-6 col-xs-11 ml-3">

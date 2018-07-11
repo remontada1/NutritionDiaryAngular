@@ -13,16 +13,20 @@ import { map } from 'rxjs/operators';
 })
 export class SignInComponent implements OnInit {
 
+
+  private isLoginError = false;
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
+
   OnSubmit(username, password) {
     this.userService.login(username, password).subscribe((data: any) => {
       localStorage.setItem('token', data.access_token);
       this.router.navigate(['foods']);
     }, (err: HttpErrorResponse) => {
       console.log(err);
+      this.isLoginError = true;
     });
   }
 

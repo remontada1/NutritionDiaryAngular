@@ -6,7 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Food } from './food';
 import { of } from 'rxjs/observable/of';
 
-import { MessageService } from '../message.service';
+import { MessageService } from '../shared/message.service';
 
 
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
