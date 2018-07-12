@@ -15,6 +15,7 @@ import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 const httpOptions = {
     headers: new HttpHeaders({
         'Content-Type': 'application/json'
+       // 'No-Auth': 'True'
     })
 };
 
@@ -30,7 +31,7 @@ export class FoodService {
 
 
     getFoods(): Observable<Food[]> {
-        return this.http.get<Food[]>(this.baseUrl + '/foods')
+        return this.http.get<Food[]>(this.baseUrl + '/foods', httpOptions)
             .pipe(
                 tap(heroes => console.log('fetched heroes')),
                 catchError(this.handleError('get heroes', []))
@@ -41,7 +42,7 @@ export class FoodService {
         return this.http.post<Food>('http://localhost:36290/api/food/', food, httpOptions)
             .pipe(
                 catchError(this.handleError('addError', food))
-        );
+            );
 
     }
 

@@ -24,6 +24,7 @@ export class UserService {
         let body = urlSearchParams.toString();
 
         const options = { headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }) };
+
         return this.http.post(this.baseUrl + '/oauth/token', body, options);
     }
 }

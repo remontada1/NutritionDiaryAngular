@@ -22,7 +22,7 @@ export class SignInComponent implements OnInit {
 
   OnSubmit(username, password) {
     this.userService.login(username, password).subscribe((data: any) => {
-      localStorage.setItem('token', data.access_token);
+      localStorage.setItem('Token', data.access_token);
       this.router.navigate(['foods']);
     }, (err: HttpErrorResponse) => {
       console.log(err);
