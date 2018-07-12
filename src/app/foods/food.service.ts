@@ -14,8 +14,8 @@ import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
 const httpOptions = {
     headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-       // 'No-Auth': 'True'
+        'Content-Type': 'application/json',
+        'No-Auth': 'True'
     })
 };
 

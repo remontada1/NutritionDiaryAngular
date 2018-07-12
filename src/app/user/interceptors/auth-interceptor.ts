@@ -30,6 +30,7 @@ export class AuthInterceptor implements HttpInterceptor {
                     }
                 );
         }
+
         // tslint:disable-next-line:one-line
         else {
             this.router.navigateByUrl('/signIn');
