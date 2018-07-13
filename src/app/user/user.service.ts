@@ -1,8 +1,9 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SignInComponent } from './sign-in/sign-in.component';
 
-import { Observable } from 'rxjs/Rx';
+import { Observable, Subject } from 'rxjs/Rx';
 import { BehaviorSubject } from 'rxjs/Rx';
 import { catchError, tap } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
@@ -15,6 +16,7 @@ export class UserService {
     constructor(private http: HttpClient) {
 
     }
+    public getButtonText = new Subject<string>();
 
     login(userName, password) {
         let urlSearchParams = new URLSearchParams();
@@ -27,7 +29,18 @@ export class UserService {
 
         return this.http.post(this.baseUrl + '/oauth/token', body, options);
     }
+    checkLogin() {
+        if (localStorage.getItem('Token') != null) {
+            this.getButtonText.next('Sign Out');
+        } else {
+            this.getButtonText.next('Sign In');
+        }
+    }
 
+    logout() {
+        localStorage.removeItem('Token');
+        this.getButtonText.next('Sign In');
+    }
 }
 
 
