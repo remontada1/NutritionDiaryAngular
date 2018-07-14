@@ -15,10 +15,9 @@ export class UserService {
 
     private isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
     private baseUrl = 'http://localhost:36290';
-    constructor(private http: HttpClient) {
+    public isLoggedIn$ = this.isLoginSubject.asObservable();
 
-    }
-
+    constructor(private http: HttpClient) { }
 
     login(userName, password) {
         const urlSearchParams = new URLSearchParams();
@@ -29,8 +28,6 @@ export class UserService {
 
         const options = { headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }) };
 
-        this.isLoginSubject.next(true);
-
         return this.http.post(this.baseUrl + '/oauth/token', body, options);
     }
 
@@ -39,8 +36,8 @@ export class UserService {
         this.isLoginSubject.next(false);
     }
 
-    isLoggedIn(): Observable<boolean> {
-        return this.isLoginSubject.asObservable();
+    setSubjectValue(value): void {
+        this.isLoginSubject.next(value);
     }
 
     private hasToken(): boolean {
