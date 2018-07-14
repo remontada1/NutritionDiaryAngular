@@ -5,6 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from '../../node_modules/rxjs/Observable';
 
 
 @Component({
@@ -14,10 +15,12 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppComponent {
 
-    private isLogged = false;
-    private signButtonText: string;
+    private isLoggedIn: Observable<boolean>;
 
-    constructor(private router: Router, private userService: UserService) { }
+
+    constructor(private router: Router, private userService: UserService) {
+        this.isLoggedIn = userService.isLoggedIn();
+    }
 
     // tslint:disable-next-line:use-life-cycle-interface
     ngOnInit() {
@@ -25,8 +28,5 @@ export class AppComponent {
         //     this.isLogged = true;
         // }
         // return false;
-        this.userService.getButtonText.subscribe(text => this.signButtonText = text);
-
     }
-
 }

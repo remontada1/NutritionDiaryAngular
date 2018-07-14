@@ -1,5 +1,5 @@
 
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SignInComponent } from './sign-in/sign-in.component';
 
@@ -8,38 +8,43 @@ import { BehaviorSubject } from 'rxjs/Rx';
 import { catchError, tap } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { User } from './user.model';
+import { EventEmitter } from '@angular/core';
 
 @Injectable()
 export class UserService {
 
+    private isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
     private baseUrl = 'http://localhost:36290';
     constructor(private http: HttpClient) {
 
     }
-    public getButtonText = new Subject<string>();
+
 
     login(userName, password) {
-        let urlSearchParams = new URLSearchParams();
+        const urlSearchParams = new URLSearchParams();
         urlSearchParams.set('username', userName);
         urlSearchParams.set('password', password);
         urlSearchParams.set('grant_type', 'password');
-        let body = urlSearchParams.toString();
+        const body = urlSearchParams.toString();
 
         const options = { headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }) };
 
+        this.isLoginSubject.next(true);
+
         return this.http.post(this.baseUrl + '/oauth/token', body, options);
     }
-    checkLogin() {
-        if (localStorage.getItem('Token') != null) {
-            this.getButtonText.next('Sign Out');
-        } else {
-            this.getButtonText.next('Sign In');
-        }
+
+    logout(): void {
+        localStorage.removeItem('Token');
+        this.isLoginSubject.next(false);
     }
 
-    logout() {
-        localStorage.removeItem('Token');
-        this.getButtonText.next('Sign In');
+    isLoggedIn(): Observable<boolean> {
+        return this.isLoginSubject.asObservable();
+    }
+
+    private hasToken(): boolean {
+        return !!localStorage.getItem('Token');
     }
 }
 

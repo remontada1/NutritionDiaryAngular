@@ -18,6 +18,7 @@ export class SignInComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
+
   }
 
   OnSubmit(username, password) {
