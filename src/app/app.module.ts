@@ -1,20 +1,23 @@
+import { AuthInterceptor } from './user/interceptors/auth-interceptor';
 import { AuthGuard } from './user/guards/auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JsonpModule, HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AppComponent } from './/app.component';
+import { AppComponent } from './app.component';
 
 import { FoodComponent } from './foods/food.component';
 import { FoodInputFormComponent } from './food-input-form/food-input-form.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { MessageService } from './shared/message.service';
 import { UserService } from './user/user.service';
 import { AlertModule } from 'ngx-bootstrap';
+import { RegisterComponent } from './user/register/register.component';
+
 
 
 
@@ -26,7 +29,8 @@ import { AlertModule } from 'ngx-bootstrap';
     AppComponent,
     FoodInputFormComponent,
     FoodComponent,
-    SignInComponent
+    SignInComponent,
+    RegisterComponent
   ],
   entryComponents: [
 
@@ -38,7 +42,7 @@ import { AlertModule } from 'ngx-bootstrap';
     HttpModule,
     FormsModule, ReactiveFormsModule, JsonpModule, AppRoutingModule
   ],
-  providers: [MessageService, UserService, AuthGuard],
+  providers: [MessageService, UserService, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

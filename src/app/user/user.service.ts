@@ -1,14 +1,8 @@
 
-import { Injectable, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { SignInComponent } from './sign-in/sign-in.component';
 
-import { Observable, Subject } from 'rxjs/Rx';
-import { BehaviorSubject } from 'rxjs/Rx';
-import { catchError, tap } from 'rxjs/operators';
-import { map } from 'rxjs/operators';
-import { User } from './user.model';
-import { EventEmitter } from '@angular/core';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class UserService {
