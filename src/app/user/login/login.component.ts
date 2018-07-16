@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { User } from '../user.model';
-import { catchError,  tap } from 'rxjs/operators';
+import { Login } from '../models/login.model';
+import { catchError, tap } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class SignInComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
 
   private isLoginError = false;
@@ -21,7 +21,7 @@ export class SignInComponent implements OnInit {
 
   }
 
-  OnSubmit(username, password) {
+  login(username, password) {
     this.userService.login(username, password).subscribe((data: any) => {
       localStorage.setItem('Token', data.access_token);
       this.userService.setSubjectValue(true);

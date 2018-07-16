@@ -33,8 +33,8 @@ export class FoodService {
     getFoods(): Observable<Food[]> {
         return this.http.get<Food[]>(this.baseUrl + '/foods', httpOptions)
             .pipe(
-                tap(heroes => console.log('fetched heroes')),
-                catchError(this.handleError('get heroes', []))
+                tap(foods => console.log('fetched foods')),
+                catchError(this.handleError('get foods', []))
             );
     }
 

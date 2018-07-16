@@ -26,16 +26,7 @@ export class FoodInputFormComponent implements OnInit {
   ngOnInit() {
   }
 
-/*   createFood(food) {
-    this.foodService.addFood(food)
-      .subscribe(res => {
-        console.log('Food added');
-      }, (err) => { console.log(err); }); 
-
-    this.gotoFoods();
-
-  } */
-  createFood(food) {
+  createFood(food: Food) {
     this.foodService.addFood(food)
       .subscribe(res => {
         this.foods.push(res);

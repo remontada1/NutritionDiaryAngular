@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { FoodComponent } from './foods/food.component';
 import { FoodInputFormComponent } from './food-input-form/food-input-form.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SignInComponent } from './user/sign-in/sign-in.component';
+import { LoginComponent } from './user/login/login.component';
 import { MessageService } from './shared/message.service';
 import { UserService } from './user/user.service';
 import { AlertModule } from 'ngx-bootstrap';
@@ -29,7 +29,7 @@ import { RegisterComponent } from './user/register/register.component';
     AppComponent,
     FoodInputFormComponent,
     FoodComponent,
-    SignInComponent,
+    LoginComponent,
     RegisterComponent
   ],
   entryComponents: [
