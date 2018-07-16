@@ -1,3 +1,4 @@
+import { RegisterComponent } from './user/register/register.component';
 import { Login } from './user/models/login.model';
 import { AuthGuard } from './user/guards/auth.guard';
 import { NgModule } from '@angular/core';
@@ -13,7 +14,8 @@ import { LoginComponent } from './user/login/login.component';
 const routes: Routes = [
   { path: 'foods', component: FoodComponent },
   { path: 'input-form', component: FoodInputFormComponent, canActivate: [AuthGuard] },
-  { path: 'signIn', component: LoginComponent }
+  { path: 'signIn', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
