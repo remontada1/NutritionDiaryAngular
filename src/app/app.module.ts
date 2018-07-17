@@ -42,7 +42,11 @@ import { RegisterComponent } from './user/register/register.component';
     HttpModule,
     FormsModule, ReactiveFormsModule, JsonpModule, AppRoutingModule
   ],
-  providers: [MessageService, UserService, AuthGuard ],
+  providers: [MessageService, UserService, AuthGuard, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
