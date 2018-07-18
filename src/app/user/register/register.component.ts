@@ -1,3 +1,5 @@
+import { HttpErrorResponse } from '@angular/common/http';
+import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 @Component({
@@ -9,7 +11,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private userService: UserService) {
     this.createForm();
   }
 
@@ -23,6 +25,16 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+
+  register() {
+    this.userService.register(this.registerForm.value).subscribe((data: any) => {
+      console.log('user created successfully');
+    },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    );
+  }
 
 
 

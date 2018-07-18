@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="registerForm">
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
     <div class="form-group">
       <label class="center-block">Username:
         <input class="form-control" formControlName="userName">
@@ -20,6 +20,4 @@
 
     <button class="btn btn-primary" type="submit">Sign up!</button>
   </form>
-  <p>Form value: {{ registerForm.value | json }}</p>
-  <p>Form status: {{ registerForm.status | json }}</p>
 </div>
