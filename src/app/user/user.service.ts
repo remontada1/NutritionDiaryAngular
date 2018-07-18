@@ -13,6 +13,14 @@ export class UserService {
 
     constructor(private http: HttpClient) { }
 
+    register(registerData) {
+        let body = JSON.stringify(registerData);
+        const options = { headers: new HttpHeaders({ 'Content-type': 'application/json' }) };
+
+        return this.http.post(this.baseUrl + '/signup', body, options);
+
+    }
+
     login(userName, password) {
         const urlSearchParams = new URLSearchParams();
         urlSearchParams.set('username', userName);
