@@ -1,27 +1,30 @@
-
 <div class="container">
   <alert *ngIf="isLoginError" type="danger">
-      Incorrect password or username. Please, try again.
-    </alert>
-  <form #loginForm="ngForm" class="col s12 white" (ngSubmit)="login(UserName.value,Password.value)">
-    <div class="form-row">
-      <div class="col-md-4 col-sm-6 col-xs-11 ml-3">
-        <label for="name">Username</label>
-        <input type="text" class="form-control" #UserName ngModel name="UserName" placeholder="Username" required>
-      </div>
-    </div>
+    Incorrect password or username. Please, try again.
+  </alert>
+  <section class="row justify-content-center">
+    <section class="col-lg-4 col-md-4 col-sm-12">
+      <form #loginForm="ngForm" (ngSubmit)="login(UserName.value,Password.value)">
+        <div class="form-row">
+          <div class="col-lg-12 col-md-12">
+            <label for="name">Username</label>
+            <input type="text" class="form-control" #UserName ngModel name="UserName" placeholder="Username" required>
+          </div>
+        </div>
 
-    <div class="form-row">
-      <div class="col-md-4 col-sm-6 col-xs-11 ml-3">
-        <label for="name">Password</label>
-        <input type="password" class="form-control" #Password ngModel name="Password" placeholder="Password" required>
-      </div>
-    </div>
+        <div class="form-row">
+          <div class="col-lg-12 col-md-12">
+            <label for="name">Password</label>
+            <input type="password" class="form-control" #Password ngModel name="Password" placeholder="Password" required>
+          </div>
+        </div>
 
-    <div class="row">
-      <div class="col-md-3 ml-3 my-3">
-        <button [disabled]="!loginForm.valid" class="btn btn-primary" type="submit">Login</button>
-      </div>
-    </div>
-  </form>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 my-3">
+            <button [disabled]="!loginForm.valid" class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </section>
 </div>
