@@ -1,5 +1,5 @@
 .vertical-center {
-    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 80%;  /* Fallback for browsers do NOT support vh unit */
     min-height: 75vh; /* These two lines are counted as one <img draggable="false" class="emoji" alt="🙂" src="https://s.w.org/images/core/emoji/72x72/1f642.png">       */
     display: flex;
     align-items: center;
