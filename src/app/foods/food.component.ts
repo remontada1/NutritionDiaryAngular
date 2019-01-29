@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FoodService } from './food.service';
+import { FoodService } from '../shared/food.service';
 import { Router } from '@angular/router';
 
 import { Food } from './food';
@@ -55,9 +55,9 @@ export class FoodComponent implements OnInit {
       }, (err) => { console.log('food has not been deleted'); });
   }
 
-  addFoodRedirect = function () {
+  addFoodRedirect = () => {
     this.router.navigate(['/input-form']);
-  };
+  }
 
 }
 

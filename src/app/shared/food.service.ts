@@ -3,10 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers, RequestOptions, RequestMethod } from '@angular/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Food } from './food';
+import { Food } from '../foods/food';
 import { of } from 'rxjs/observable/of';
 
-import { MessageService } from '../shared/message.service';
+import { MessageService } from './message.service';
 
 
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
@@ -14,8 +14,7 @@ import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
 const httpOptions = {
     headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'No-Auth': 'True'
+        'Content-Type': 'application/json'
     })
 };
 

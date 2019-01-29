@@ -1,12 +1,13 @@
-import { Subject } from 'rxjs/Rx';
+import { Subject } from 'rxjs/subject';
+import {takeUntil} from 'rxjs/operators';
 import { UserService } from './user/user.service';
-
-
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/takeUntil';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Observable } from '../../node_modules/rxjs/Observable';
+
 
 
 @Component({
@@ -21,7 +22,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
 
     constructor(private router: Router, private userService: UserService) {
-        // this.isLoggedIn = userService.isLoggedIn();
         userService.isLoggedIn$
             .takeUntil(this.unsubscribe$)
             .subscribe((isLoggedIn) =>
@@ -29,8 +29,11 @@ export class AppComponent implements OnInit, OnDestroy {
             );
     }
 
-    ngOnInit() {
+    ngOnInit() { }
 
+    logOut(): void {
+      this.userService.logout();
+      this.router.navigate(['/signIn']);
     }
 
     ngOnDestroy(): void {

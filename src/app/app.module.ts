@@ -17,6 +17,7 @@ import { MessageService } from './shared/message.service';
 import { UserService } from './user/user.service';
 import { AlertModule } from 'ngx-bootstrap';
 import { RegisterComponent } from './user/register/register.component';
+import { MealComponent } from './meal/meal.component';
 
 
 
@@ -30,7 +31,8 @@ import { RegisterComponent } from './user/register/register.component';
     FoodInputFormComponent,
     FoodComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MealComponent
   ],
   entryComponents: [
 

@@ -18,13 +18,12 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <a class="nav-link" [routerLink]="['/register']">Sign up</a>
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-search my-2 my-sm-0" type="submit">Search</button>
-      <button class="btn btn-signIn my-2 ml-4 my-sm2" *ngIf="!(isLoggedIn)"  
+      <button class="btn btn-signIn my-2 ml-4 my-sm2" *ngIf="!(isLoggedIn)"
             [routerLink]="['/signIn']" >Sign In</button>
       <button class="btn btn-signOut my-2 ml-4 my-sm2" *ngIf="(isLoggedIn)"
-            (click)="userService.logout()">Sign Out</button>  
+            (click)="logOut()">Sign Out</button>
     </form>
   </div>
 </nav>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Food } from '../foods/food';
 import { NgForm } from '@angular/forms';
-import { FoodService } from '../foods/food.service';
+import { FoodService } from '../shared/food.service';
 import { Observable } from 'rxjs/Observable';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http'; import { HttpModule } from '@angular/http';
