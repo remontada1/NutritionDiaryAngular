@@ -18,7 +18,7 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppComponent implements OnInit, OnDestroy {
     private unsubscribe$ = new Subject();
-    private isLoggedIn: boolean;
+    public isLoggedIn: boolean;
 
 
     constructor(private router: Router, private userService: UserService) {

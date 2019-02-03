@@ -1,3 +1,4 @@
+import { FoodService } from './../shared/food.service';
 import { MealService } from './../shared/meal.service';
 import { Component, OnInit } from '@angular/core';
 import { Meal } from './meal';
@@ -5,7 +6,8 @@ import { Meal } from './meal';
 @Component({
   selector: 'app-meal',
   templateUrl: './meal.component.html',
-  styleUrls: ['./meal.component.css']
+  styleUrls: ['./meal.component.css'],
+  providers: [MealService]
 })
 
 export class MealComponent implements OnInit {
@@ -16,8 +18,7 @@ export class MealComponent implements OnInit {
   ngOnInit() {
   }
 
-
-  addMeal(meal): void {
+  addMeal(meal: Meal): void {
     this.mealService.addMeal(meal)
       .subscribe(res => {
         this.meals.push(meal);

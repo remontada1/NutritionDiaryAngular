@@ -26,9 +26,6 @@ export class FoodService {
 
     constructor(private http: HttpClient, private messageService: MessageService) { }
 
-
-
-
     getFoods(): Observable<Food[]> {
         return this.http.get<Food[]>(this.baseUrl + '/foods', httpOptions)
             .pipe(

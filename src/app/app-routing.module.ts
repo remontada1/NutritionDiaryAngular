@@ -1,3 +1,4 @@
+import { MealComponent } from './meal/meal.component';
 import { RegisterComponent } from './user/register/register.component';
 import { Login } from './user/models/login.model';
 import { AuthGuard } from './user/guards/auth.guard';
@@ -13,6 +14,7 @@ import { LoginComponent } from './user/login/login.component';
 
 const routes: Routes = [
   { path: 'foods', component: FoodComponent },
+  { path: 'meals', component: MealComponent },
   { path: 'input-form', component: FoodInputFormComponent, canActivate: [AuthGuard] },
   { path: 'signIn', component: LoginComponent },
   { path: 'register', component: RegisterComponent }

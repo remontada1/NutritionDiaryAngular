@@ -18,6 +18,7 @@ const httpOptions = {
 
 const baseUrl = 'http://localhost:36290/api/meal';
 
+@Injectable()
 export class MealService {
 
     constructor(private http: HttpClient, private messageService: MessageService) {
