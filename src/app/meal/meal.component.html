@@ -1,3 +1,18 @@
-<p>
-  meal works!
-</p>
+<div *ngIf="meals">
+  <div *ngFor="let meal of meals.mealVm">
+    {{meal.mealDate}}
+    {{meal.name}}
+    <span *ngFor="let food of meal.foods">
+      {{ food.kCalory }}
+      {{ food.protein }}
+      {{ food.fats }}
+      {{ food.foodName }}
+      {{ food.foodCarboHydrates }}
+    </span>
+  </div>
+
+  <!-- <td>{{food.fats}}</td>
+    <td>{{food.kCalory}}</td>
+    <td>{{food.protein}}</td>
+    <td>{{food.foodCarboHydrates}}</td> -->
+</div>
