@@ -20,13 +20,11 @@ import { Food } from './food';
 
 
 export class FoodComponent implements OnInit {
-  title = 'app';
   private foods: Food[];
 
 
   constructor(private http: HttpClient,
     private foodService: FoodService,
-    private modalService: NgbModal,
     private router: Router) { }
 
   ngOnInit() {

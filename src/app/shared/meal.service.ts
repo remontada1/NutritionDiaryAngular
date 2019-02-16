@@ -1,4 +1,4 @@
-import { MealVM } from './../meal/meal';
+import { MealVM } from "./../meal/meal";
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
@@ -14,7 +14,7 @@ import { Food } from "../foods/food";
 import { of } from "rxjs/observable/of";
 
 import { MessageService } from "./message.service";
-import { Meal} from "../meal/meal";
+import { Meal } from "../meal/meal";
 
 const httpOptions = {
   headers: new HttpHeaders({

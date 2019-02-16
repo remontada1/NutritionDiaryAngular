@@ -14,24 +14,24 @@ import "rxjs/add/operator/do";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 
-
 @Injectable()
-export class AuthInterceptor implements HttpInterceptor {
+export class UnauthorizedInterceptor implements HttpInterceptor {
   constructor(private router: Router) {}
 
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (localStorage.getItem("Token")) {
-      const req = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${localStorage.getItem("Token")}`
+    return next.handle(request).do(
+      (event: HttpEvent<any>) => {
+        if (event instanceof HttpResponse) {
         }
-      });
-      return next.handle(req);
-    }
-
-      return next.handle(request);
-    }
+      },
+      (err: any) => {
+        if (err instanceof HttpErrorResponse && err.status === 401) {
+          this.router.navigate(['/signIn']);
+        }
+      }
+    );
   }
+}
