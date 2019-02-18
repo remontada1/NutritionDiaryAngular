@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
       console.log('user created successfully');
     },
       (error: HttpErrorResponse) => {
-        console.log(error);
+      console.log(error.error.modelState);
       }
     );
   }

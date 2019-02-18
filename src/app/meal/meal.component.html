@@ -1,13 +1,31 @@
 <div *ngIf="meals">
-  <div *ngFor="let meal of meals.mealVm">
-   <span style="background-color: red">{{meal.mealDate}}
-      {{meal.name}}</span>
-    <div *ngFor="let food of meal.foods">
-      {{ food.kCalory }}
-      {{ food.protein }}
-      {{ food.fats }}
-      {{ food.foodName }}
-      {{ food.foodCarboHydrates }}
-    </div>
-  </div>
+  <div class="date-header">{{dateForGet.Date | date}}</div>
+  <table class="table" >
+    <tr>
+      <th>Name</th>
+      <th>Calories</th>
+      <th>Carbos</th>
+      <th>Proteins</th>
+      <th>Fats</th>
+    </tr>
+    <tbody *ngFor="let meal of meals.mealVm">
+        <tr>
+            <th>{{ meal.mealDate | date:'shortTime'}} {{ meal.name }}</th>
+        </tr>
+      <tr *ngFor="let food of meal.foods">
+        <td>{{ food.foodName }}</td>
+        <td>{{ food.kCalory }}</td>
+        <td>{{ food.foodCarboHydrates }}</td>
+        <td>{{ food.protein }}</td>
+        <td>{{ food.fats }}</td>
+      </tr>
+    </tbody>
+    <tr>
+      <td class="remove-td-borders">Total:</td>
+      <td>{{ meals.totalCalories.totalCalories }}</td>
+      <td>{{ meals.totalCalories.totalCarbs }}</td>
+      <td>{{ meals.totalCalories.totalProteins }}</td>
+      <td>{{ meals.totalCalories.totalFats }}</td>
+    </tr>
+  </table>
 </div>
