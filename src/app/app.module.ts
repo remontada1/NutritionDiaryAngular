@@ -20,9 +20,13 @@ import { AlertModule } from "ngx-bootstrap";
 import { RegisterComponent } from "./user/register/register.component";
 import { MealComponent } from "./meal/meal.component";
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule, MatFormFieldModule } from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import ru from '@angular/common/locales/ru-UA';
 import { registerLocaleData } from '@angular/common';
+import { MatMealDatepickerComponent } from './mat-meal-datepicker/mat-meal-datepicker.component';
 registerLocaleData(ru);
 
 
@@ -33,10 +37,16 @@ registerLocaleData(ru);
     FoodComponent,
     LoginComponent,
     RegisterComponent,
-    MealComponent
+    MealComponent,
+    MatMealDatepickerComponent
   ],
   entryComponents: [],
   imports: [
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
     NgbModule.forRoot(),
     BsDropdownModule.forRoot(),
     AlertModule.forRoot(),
@@ -64,7 +74,8 @@ registerLocaleData(ru);
     },
     {
       provide: LOCALE_ID, useValue: 'ru-UA'
-    }
+    },
+    MatDatepickerModule
   ],
   bootstrap: [AppComponent]
 })
