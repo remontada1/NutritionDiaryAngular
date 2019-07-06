@@ -13,7 +13,7 @@ import { Meal, MealVM } from './meal';
 export class MealComponent implements OnInit {
 
   private dateForGet = {
-    Date: new Date('08/14/2018')
+    Date: '08/13/2018'
   };
 
   public meals: MealVM;

@@ -2,7 +2,7 @@ import { UnauthorizedInterceptor } from './user/interceptors/unauthorized-interc
 import { AuthInterceptor } from "./user/interceptors/auth-interceptor";
 import { AuthGuard } from "./user/guards/auth.guard";
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, LOCALE_ID } from "@angular/core";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { JsonpModule, HttpModule } from "@angular/http";
@@ -19,6 +19,12 @@ import { UserService } from "./user/user.service";
 import { AlertModule } from "ngx-bootstrap";
 import { RegisterComponent } from "./user/register/register.component";
 import { MealComponent } from "./meal/meal.component";
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
+import ru from '@angular/common/locales/ru-UA';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(ru);
+
 
 @NgModule({
   declarations: [
@@ -32,6 +38,7 @@ import { MealComponent } from "./meal/meal.component";
   entryComponents: [],
   imports: [
     NgbModule.forRoot(),
+    BsDropdownModule.forRoot(),
     AlertModule.forRoot(),
     BrowserModule,
     HttpClientModule,
@@ -54,6 +61,9 @@ import { MealComponent } from "./meal/meal.component";
       provide: HTTP_INTERCEPTORS,
       useClass: UnauthorizedInterceptor,
       multi: true
+    },
+    {
+      provide: LOCALE_ID, useValue: 'ru-UA'
     }
   ],
   bootstrap: [AppComponent]
