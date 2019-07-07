@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { MatDatepickerInputEvent } from '@angular/material';
 
 @Component({
   selector: 'app-mat-meal-datepicker',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatMealDatepickerComponent implements OnInit {
 
+  @Output()
+  dateChange: EventEmitter<MatDatepickerInputEvent<any>>;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  changeSelectedDate(date: any) {
+    console.log('date was changed');
+  }
 }
