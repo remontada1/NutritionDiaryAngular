@@ -1,8 +1,11 @@
+import { FilterDate } from './filter-date';
+
 import { FoodService } from './../shared/food.service';
 import { MealService } from './../shared/meal.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Meal, MealVM } from './meal';
 import { MatDatepickerInputEvent } from '@angular/material';
+import { moment } from 'ngx-bootstrap/chronos/test/chain';
 
 @Component({
   selector: 'app-meal',
@@ -16,21 +19,28 @@ import { MatDatepickerInputEvent } from '@angular/material';
 
 export class MealComponent implements OnInit {
 
-  private dateForGet = {
-    Date: '08/13/2018'
-  };
-
+  public filterDateDto: FilterDate;
   public meals: MealVM;
   constructor(private mealService: MealService) { }
 
   ngOnInit() {
-    this.getMealWithFoodsOnSpecificDate();
+    // this.getMealWithFoodsOnSpecificDate();
   }
 
-  getMealWithFoodsOnSpecificDate() {
-      this.mealService.getMealWithFoodsOnSpecificDate(this.dateForGet).subscribe(meal => {
-        this.meals = meal;
-      });
+  getMealWithFoodsOnSpecificDate($event) {
+
+  }
+  receiveMessage($event): void {
+    const momentDate = new Date($event);
+    const formattedDate = moment(momentDate).format("MM/DD/YYYY");
+
+    this.filterDateDto = {
+      filterDate: formattedDate
+    };
+
+    this.mealService.getMealWithFoodsOnSpecificDate(this.filterDateDto).subscribe(meal => {
+      this.meals = meal;
+    });
   }
 
   // addMeal(meal: Meal): void {

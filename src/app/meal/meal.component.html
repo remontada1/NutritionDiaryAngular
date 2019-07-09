@@ -1,9 +1,8 @@
 
   <div class="text-center">
-    <app-mat-meal-datepicker></app-mat-meal-datepicker>
+    <app-mat-meal-datepicker (sendDate)="receiveMessage($event)"></app-mat-meal-datepicker>
   </div>
 <div *ngIf="meals">
-  <div class="date-header">{{dateForGet.Date | date}}</div>
   <table class="table" >
     <tr>
       <th>Name</th>

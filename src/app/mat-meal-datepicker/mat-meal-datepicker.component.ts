@@ -9,14 +9,14 @@ import { MatDatepickerInputEvent } from '@angular/material';
 export class MatMealDatepickerComponent implements OnInit {
 
   @Output()
-  dateChange: EventEmitter<MatDatepickerInputEvent<any>>;
+  sendDate: EventEmitter<MatDatepickerInputEvent<any>> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  changeSelectedDate(date: any) {
-    console.log('date was changed');
+  changeSelectedDate($event) {
+    this.sendDate.emit($event.value);
   }
 }
