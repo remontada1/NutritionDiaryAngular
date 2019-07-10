@@ -24,15 +24,12 @@ export class MealComponent implements OnInit {
   constructor(private mealService: MealService) { }
 
   ngOnInit() {
-    // this.getMealWithFoodsOnSpecificDate();
   }
 
-  getMealWithFoodsOnSpecificDate($event) {
 
-  }
-  receiveMessage($event): void {
+  sendMealsDate($event): void {
     const momentDate = new Date($event);
-    const formattedDate = moment(momentDate).format("MM/DD/YYYY");
+    const formattedDate = moment(momentDate).format('MM/DD/YYYY');
 
     this.filterDateDto = {
       filterDate: formattedDate
@@ -43,12 +40,4 @@ export class MealComponent implements OnInit {
     });
   }
 
-  // addMeal(meal: Meal): void {
-  //   this.mealService.addMeal(meal)
-  //     .subscribe(res => {
-  //       this.meals.push(meal);
-  //     }, (err) => {
-  //       console.log(err);
-  //     });
-  // }
 }

@@ -1,9 +1,8 @@
-
-  <div class="text-center">
-    <app-mat-meal-datepicker (sendDate)="receiveMessage($event)"></app-mat-meal-datepicker>
-  </div>
-<div *ngIf="meals">
-  <table class="table" >
+<div class="text-center">
+  <app-mat-meal-datepicker (sendDate)="sendMealsDate($event)"></app-mat-meal-datepicker>
+</div>
+<div *ngIf="meals?.mealVm.length > 0; else noMealsTemplate">
+  <table class="table">
     <tr>
       <th>Name</th>
       <th>Calories</th>
@@ -12,9 +11,9 @@
       <th>Fats</th>
     </tr>
     <tbody *ngFor="let meal of meals.mealVm">
-        <tr>
-            <th>{{ meal.mealDate | date:'shortTime'}} {{ meal.name }}</th>
-        </tr>
+      <tr>
+        <th>{{ meal.mealDate | date:'shortTime'}} {{ meal.name }}</th>
+      </tr>
       <tr *ngFor="let food of meal.foods">
         <td>{{ food.foodName }}</td>
         <td>{{ food.kCalory }}</td>
@@ -25,10 +24,19 @@
     </tbody>
     <tr>
       <td class="remove-td-borders">Total:</td>
-      <td>{{ meals.totalCalories.totalCalories }}</td>
-      <td>{{ meals.totalCalories.totalCarbs }}</td>
-      <td>{{ meals.totalCalories.totalProteins }}</td>
-      <td>{{ meals.totalCalories.totalFats }}</td>
+      <td>{{ meals.totalCalories?.totalCalories }}</td>
+      <td>{{ meals.totalCalories?.totalCarbs }}</td>
+      <td>{{ meals.totalCalories?.totalProteins }}</td>
+      <td>{{ meals.totalCalories?.totalFats }}</td>
     </tr>
   </table>
 </div>
+<ng-template #noMealsTemplate>
+  <div class="no-meals-found">
+    <div class="text-center">
+      <p class="no-meals-found-text">
+        No meals were found on this date
+      </p>
+    </div>
+  </div>
+</ng-template>

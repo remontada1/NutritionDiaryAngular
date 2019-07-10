@@ -1,4 +1,11 @@
-.date-header {
+.no-meals-found {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 10em;
+}
+
+.no-meals-found-text {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 25px;
 }
